@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Cards from "../components/Cards";
+import Search from '../components/Search';
+
+/*
+TODO: 
+Add state management
+Add api calling
+Add loading animation and other interactivity
+Improve the UI
+Add other features
+*/
+
+---
+
+<Layout>
+	<div class="h-full flex flex-row">
+		<div class="bg-base-300 rounded-box flex flex-col p-10 gap-10 items-center w-1/4 flex-none ">
+			<Search client:only="react"/>
+		</div>
+		<div class="divider lg:divider-horizontal"></div>
+		<Cards client:only="react"/>
+	</div>
+</Layout>

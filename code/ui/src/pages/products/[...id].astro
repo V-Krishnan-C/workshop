@@ -1,0 +1,39 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+
+export const prerender = false;
+const {id} = Astro.params
+let url = new URL("http://localhost:8001/api/v1/similar_products");
+let params = { product_id: id };
+url.search = new URLSearchParams(params).toString();
+let result = await fetch(url)
+result = await result.json()
+
+---
+
+<Layout>
+    <div class="w-full h-full card card-side bg-base-100 shadow-sm">
+      <figure class="w-full">
+        <img
+          src={result[0].image_uri}
+          alt="Movie" />
+      </figure>
+      <div class="card-body">
+        <h2 class="card-title">{result[0].content.title}</h2>
+        <p id="content">{result[0].content.content}</p>
+        <div class="card-actions justify-end">
+          <button class="btn btn-primary">MORE</button>
+        </div>
+      </div>
+    </div>
+    <script src=https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js >
+        var converter = new showdown.Converter()
+        let content = document.getElementById("content")
+        text      = content?.innerText
+        html      = converter.makeHtml(text);
+        console.log(text)
+        content.innerHTML = html
+
+    </script>
+</Layout>

@@ -1,0 +1,49 @@
+---
+import "../assets/app.css";
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>AI-zon</title>
+		<script src=https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js ></script>
+	</head>
+	<body class="h-screen w-screen flex flex-col p-9">
+		<div class="h-1/10">
+			<div class="navbar bg-base-300 rounded-box px-10 shadow-sm">
+			<div class="flex-1">
+				<a href="/" class="btn btn-ghost text-xl">AI-zon</a>
+			</div>
+			<div class="flex gap-2">
+				<div class="dropdown dropdown-end">
+					<a href="/create_product"><button class="btn mr-5" onclick="">CREATE</button></a>
+					<div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+						<div class="w-10 rounded-full">
+						<img
+							alt="Tailwind CSS Navbar component"
+							src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+						</div>
+					</div>
+					<ul
+						tabindex="0"
+						class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+						<li>
+						<a class="justify-between">
+							Profile
+							<span class="badge">New</span>
+						</a>
+						</li>
+						<li><a>Settings</a></li>
+						<li><a>Logout</a></li>
+					</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mt-7 h-9/10">
+			<slot />
+		</div>
+	</body>
+</html>
